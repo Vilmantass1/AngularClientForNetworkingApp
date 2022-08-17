@@ -16,7 +16,7 @@ currentUser$ = this.currentUserSource.asObservable();
 
   login(model: any)
   { 
-    return this.http.post(this.baseUrl +'account/login',model).pipe(
+    return this.http.post(this.baseUrl +'account/login', model).pipe(
       map((response:User)=>{
         const user = response;
         if (user)
@@ -31,7 +31,7 @@ currentUser$ = this.currentUserSource.asObservable();
 
   register(model:any)
   {
-    return this.http.post(this.baseUrl + 'account/register',model.pipe(
+    return this.http.post(this.baseUrl + 'account/register',model).pipe(
       map((user: User) =>
         {
         if (user)
@@ -40,7 +40,7 @@ currentUser$ = this.currentUserSource.asObservable();
           this.currentUserSource.next(user);
         }
         })
-    ))
+    )
   }
 
   setCurrentUser(user: User)
